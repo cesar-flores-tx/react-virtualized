@@ -1,6 +1,8 @@
 /** @flow */
 
-import * as React from 'react';
+import React from 'react';
+import type {Element} from 'react';
+import {PureComponent} from 'react';
 import createDetectElementResize from '../vendor/detectElementResize';
 
 type Size = {
@@ -10,7 +12,7 @@ type Size = {
 
 type Props = {
   /** Function responsible for rendering children.*/
-  children: Size => React.Element<*>,
+  children: Size => Element<*>,
 
   /** Optional custom CSS class name to attach to root AutoSizer element.  */
   className?: string,
@@ -49,7 +51,7 @@ type DetectElementResize = {
   removeResizeListener: ResizeHandler,
 };
 
-export default class AutoSizer extends React.PureComponent<Props, State> {
+export default class AutoSizer extends PureComponent<Props, State> {
   static defaultProps = {
     onResize: () => {},
     disableHeight: false,
