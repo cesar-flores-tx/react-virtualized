@@ -17,7 +17,9 @@ import type {
 } from './types';
 import type {AnimationTimeoutId} from '../utils/requestAnimationTimeout';
 
-import * as React from 'react';
+import React from 'react';
+import type {Element as ElementT} from 'react';
+import {PureComponent} from 'react';
 import clsx from 'clsx';
 import calculateSizeAndPositionDataAndUpdateScrollOffset from './utils/calculateSizeAndPositionDataAndUpdateScrollOffset';
 import ScalingCellSizeAndPositionManager from './utils/ScalingCellSizeAndPositionManager';
@@ -257,7 +259,7 @@ type State = {
  * Renders tabular data with virtualization along the vertical and horizontal axes.
  * Row heights and column widths must be known ahead of time and specified as properties.
  */
-class Grid extends React.PureComponent<Props, State> {
+class Grid extends PureComponent<Props, State> {
   static defaultProps = {
     'aria-label': 'grid',
     'aria-readonly': true,
@@ -301,7 +303,7 @@ class Grid extends React.PureComponent<Props, State> {
   _scrollbarPresenceChanged = false;
   _scrollingContainer: Element;
 
-  _childrenToDisplay: React.Element<*>[];
+  _childrenToDisplay: ElementT<*>[];
 
   _columnStartIndex: number;
   _columnStopIndex: number;
