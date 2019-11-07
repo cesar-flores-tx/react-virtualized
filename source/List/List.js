@@ -13,7 +13,9 @@ import type {
 import type {RowRenderer, RenderedRows, Scroll} from './types';
 
 import Grid, {accessibilityOverscanIndicesGetter} from '../Grid';
-import * as React from 'react';
+import React from 'react';
+import type {ElementRef} from 'react';
+import {PureComponent} from 'react';
 import clsx from 'clsx';
 
 /**
@@ -96,7 +98,7 @@ type Props = {
   width: number,
 };
 
-export default class List extends React.PureComponent<Props> {
+export default class List extends PureComponent<Props> {
   static defaultProps = {
     autoHeight: false,
     estimatedRowSize: 30,
@@ -110,7 +112,7 @@ export default class List extends React.PureComponent<Props> {
     style: {},
   };
 
-  Grid: ?React.ElementRef<typeof Grid>;
+  Grid: ?ElementRef<typeof Grid>;
 
   forceUpdateGrid() {
     if (this.Grid) {
@@ -240,7 +242,7 @@ export default class List extends React.PureComponent<Props> {
     });
   };
 
-  _setRef = (ref: ?React.ElementRef<typeof Grid>) => {
+  _setRef = (ref: ?ElementRef<typeof Grid>) => {
     this.Grid = ref;
   };
 

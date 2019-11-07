@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type {Element} from 'react';
 
 export type RowRendererParams = {
   index: number,
@@ -11,7 +11,7 @@ export type RowRendererParams = {
   style: Object,
 };
 
-export type RowRenderer = (params: RowRendererParams) => React.Element<*>;
+export type RowRenderer = (params: RowRendererParams) => Element<*>;
 
 export type RenderedRows = {
   overscanStartIndex: number,
